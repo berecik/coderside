@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d24d4849-29f1-44cb-be01-f33587bc474c" name="Default" comment="ignore pycharm files">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/coderside.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+    <list default="true" id="d24d4849-29f1-44cb-be01-f33587bc474c" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/coderside/_local_settings.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -649,7 +643,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496003649103</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="cleanup files">
+      <created>1496003773736</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1496003773736</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -692,7 +693,8 @@
     <MESSAGE value="add my extra staff and necessary libraries" />
     <MESSAGE value="ignore local settings" />
     <MESSAGE value="ignore pycharm files" />
-    <option name="LAST_COMMIT_MESSAGE" value="ignore pycharm files" />
+    <MESSAGE value="cleanup files" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
