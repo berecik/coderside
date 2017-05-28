@@ -37,6 +37,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # waliki staff
+    'waliki',
+    'waliki.git',  # optional but recommended
+    'waliki.attachments',  # optional but recommended
+    'waliki.pdf',  # optional
+    'waliki.search',  # optional, additional configuration required
+    'waliki.slides',  # optional
+    'waliki.togetherjs',  # optional
+
+    'sendfile',  # for waliki atachement
+
+    # django additional modules
+    # third part applications
+    'django_extensions',
+    'mptt',  # hierarchically data structure
+
+    # rest framework
+    'rest_framework',  # for rest API
+    'utils.apps.UtilsConfig',  # to share settings between Django and JavaScript
+
 ]
 
 MIDDLEWARE = [
@@ -119,3 +139,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# waliki config here
+SENDFILE_BACKEND = 'sendfile.backends.simple'
+
+
+# import settings shared between Django and JavaScript
+try:
+    from .common_settings import *
+except ImportError as e:
+    pass
+
+# import local specific settings
+try:
+    from ._local_settings import *
+except ImportError as e:
+    pass

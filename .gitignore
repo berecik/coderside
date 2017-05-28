@@ -1,3 +1,6 @@
+# Ignore specific local settings
+_local_settings
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs

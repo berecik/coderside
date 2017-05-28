@@ -1,2 +1,17 @@
-Django==1.11.1
-pytz==2017.2
+Django # initial django
+pytz # time zone for python
+
+waliki # django git based wiki implementation
+django-sendfile # for waliki atachement
+
+psycopg2 # postgresql database driver
+jsonfield # postgresql json field driver
+django-mptt # to represent and manage hierarchical data structures
+
+django-extensions # for improve command line commands and debugging
+
+Werkzeug # deploy helper, we not need this yet, provide also onsite debuger and this is nice
+# django-debug-toolbar # for debug application od screen
+# watson # inline debug tools
+
+djangorestframework # Django support for rest
