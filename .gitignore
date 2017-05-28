@@ -1,8 +1,8 @@
 # Ignore specific local settings
-_local_settings.py*
+_local_settings.p*
 
 # Ignore jetbrain IDEs project config
-/.idea
+.idea/*
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
