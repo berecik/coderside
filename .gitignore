@@ -1,5 +1,5 @@
 # Ignore specific local settings
-_local_settings
+_local_settings.p*
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
