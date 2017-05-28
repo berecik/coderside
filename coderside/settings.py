@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'waliki.git',  # optional but recommended
     'waliki.attachments',  # optional but recommended
     'waliki.pdf',  # optional
-    'waliki.search',  # optional, additional configuration required
+    # 'waliki.search',  # optional, additional configuration required
     'waliki.slides',  # optional
     'waliki.togetherjs',  # optional
 

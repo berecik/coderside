@@ -4,7 +4,7 @@ import json
 from django.shortcuts import render
 from django.conf import settings
 
-from h2o_app import common_settings
+from coderside import common_settings
 
 __author__ = 'beret'
 

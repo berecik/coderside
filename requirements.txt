@@ -3,7 +3,10 @@ pytz # time zone for python
 
 waliki # django git based wiki implementation
 django-sendfile # for waliki atachement
+rst2pdf # for waliki.dbf
+# django-haystack # for waliki.search but not working
 
+mysqlclient # mysql python3 compatible database driver
 psycopg2 # postgresql database driver
 jsonfield # postgresql json field driver
 django-mptt # to represent and manage hierarchical data structures
