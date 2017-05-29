@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^wiki/', include('waliki.urls')),
     url(r'^utils/', include("utils.urls")),
+    url(r'^band/', include("band.urls")),
 ]

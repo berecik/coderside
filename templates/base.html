@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
+    {% block style %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    {% endblock style %}
+    {% block script %}
+        <script src="{% url 'js_settings' %}" rel="script" type="text/javascript"></script>
+        {% if react_on %}
+        <script src="{% static 'js/coderside-react.js' %}" rel="script" type="text/javascript"></script>
+        {% endif %}
+    {% endblock script %}
+</head>
+<body>
+{% block content %}
+{% endblock content %}
+{% block react %}
+<div id="react-root">
+    {% block off_react %}
+    {% endblock off_react %}
+</div>
+{% endblock react %}
+{% block after_react %}
+{% endblock after_react %}
+</body>
+</html>

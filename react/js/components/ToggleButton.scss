@@ -1,0 +1,36 @@
+$width: 2em;
+$height: ($width/2);
+$border: ($height/20);
+$circle-factor: 1;
+
+.toggle-button {
+  display: inline;
+  span {
+    display: inline-flex;
+    width: $width;
+    height: $height;
+    border: $border solid black;
+    border-radius: ($height/2) + $border;
+
+    align-items: center;
+
+    div {
+      $size: $height - (2 * $circle-factor * $border);
+      width: $size;
+      height: $size;
+      border-radius: ($size/2) + $border;
+      background-color: black;
+      margin: $border*$circle-factor;
+    }
+
+    &.toggle-on {
+      background-color: lightgreen;
+      justify-content: flex-start;
+    }
+
+    &.toggle-off {
+      background-color: lightgrey;
+      justify-content: flex-end;
+    }
+  }
+}
