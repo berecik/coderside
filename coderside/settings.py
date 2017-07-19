@@ -24,7 +24,16 @@ SECRET_KEY = '=jo1xsm)8+sxrf4^9v#jouvg+a)c8-i0!*-$=f1m^8z54c#3@j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'joasia',
+    'joanna',
+    '0.0.0.0',
+    '127.0.0.1',
+    '127.0.1.1',
+    '127.0.2.1',
+    'local.hipisi.org.pl'
+]
 
 # Application definition
 
@@ -45,17 +54,23 @@ INSTALLED_APPS = [
     'waliki.togetherjs',  # optional
 
     'sendfile',  # for waliki atachement
+    'channels',  # web socket implementation
 
     # django additional modules
     # third part applications
     'django_extensions',
     'mptt',  # hierarchically data structure
+    'social_django',
 
     # rest framework
     'rest_framework',  # for rest API
+    # for code highlight
+    'django_pygments',
+    # my private tools
     'utils.apps.UtilsConfig',  # to share settings between Django and JavaScript
 
-    'band',  # simple test page
+    'bands.apps.BandConfig',  # simple test page
+    'snippets.apps.SnippetsConfig',  # code snippets apps
 
 ]
 
@@ -84,6 +99,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -137,13 +154,65 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+STATIC_ROOT = [
+    os.path.join(BASE_DIR, "bands/static/"),
+    # os.path.join(BASE_DIR, "react"),
     # '/var/www/static/',
 ]
 
 # waliki config here
 SENDFILE_BACKEND = 'sendfile.backends.simple'
+
+# WALIKI_MARKUPS_SETTINGS = {'reStructuredText': {
+#     # check http://docutils.sourceforge.net/docs/user/config.html
+#     'settings_overrides': {
+#         'initial_header_level': 2,
+#         'record_dependencies': True,
+#         'stylesheet_path': None,
+#         'link_stylesheet': True,
+#         'syntax_highlight': 'short',
+#         'halt_level': 5,
+#     },
+#     'writer': HTML5Writer(),
+#     'writer_name': 'html5',
+#     },
+# 'Markdown': {
+#         'extensions': ['wikilinks', 'headerid'],
+#         'extension_configs': {
+#             'wikilinks': {'build_url': get_url},
+#             'headerid': {'level': 2},
+#         }
+#     }
+
+
+# For social auth
+AUTHENTICATION_BACKENDS = (
+    # 'social_core.backends.open_id.OpenIdAuth',
+    # 'social_core.backends.google.GoogleOpenId',
+    'social_core.backends.google.GoogleOAuth2',
+    # 'social_core.backends.google.GoogleOAuth',
+    # 'social_core.backends.twitter.TwitterOAuth',
+    # 'social_core.backends.yahoo.YahooOpenId',
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+)
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_FACEBOOK_KEY = '1666508556932460'
+SOCIAL_AUTH_FACEBOOK_SECRET = '82c4196112e63d94d31f15821f20fe80'
+SOCIAL_AUTH_FACEBOOK_APP_NAMESPACE = '_aplikacja_bereta_a'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+# Always use bpython for shell_plus
+SHELL_PLUS = "bpython"
+
+# Web Socket Channels
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "snippets.routing.channel_routing",
+    },
+}
 
 # import settings shared between Django and JavaScript
 try:

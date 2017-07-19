@@ -8,10 +8,13 @@
         <link rel="stylesheet" href="{% static 'css/index.css' %}">
     {% endblock style %}
     {% block script %}
+        <script src="{% static 'js/md5.js' %}" rel="script" type="text/javascript"></script>
         <script src="{% url 'js_settings' %}" rel="script" type="text/javascript"></script>
-        {% if react_on %}
-        <script src="{% static 'js/coderside-react.js' %}" rel="script" type="text/javascript"></script>
-        {% endif %}
+{#        {% if react_on %}#}
+            <script src="{% static 'js/coderside-react.js' %}" rel="script" type="text/javascript"></script>
+{#            <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>#}
+{#            <script src="{% static 'js/app.jsx' %}" type="text/babel"  data-presets="es2015,stage-2, react"></script>#}
+{#        {% endif %}#}
     {% endblock script %}
 </head>
 <body>
@@ -19,8 +22,8 @@
 {% endblock content %}
 {% block react %}
 <div id="react-root">
-    {% block off_react %}
-    {% endblock off_react %}
+    {% block react_off %}
+    {% endblock react_off %}
 </div>
 {% endblock react %}
 {% block after_react %}

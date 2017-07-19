@@ -1,15 +1,19 @@
 /**
  * Created by beret on 29.05.17.
  */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ToggleButton from './components/ToggleButton.jsx';
 
-document.addEventListener('DOMContentLoaded', function() {
+import CodeEditor from './components/CodeEditor.jsx';
+
+document.addEventListener('DOMContentLoaded', function () {
+
     ReactDOM.render(
-        <h1>
-            React App!
-        </h1>,
+        <div>
+            <h1>Code Editor!</h1>
+            <CodeEditor/>
+        </div>,
         document.getElementById('react-root')
     );
 });

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load pygmentify %}
+{% load staticfiles %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'django_pygments/css/pygments_default.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'django_pygments/css/demo.css' %}"/>
+{% endblock style %}
+
+{% block script %}
+    {{ block.super }}
+    <script rel="script" type="text/javascript">
+{#        var snippet = {{ snippet_js|safe }};#}
+    </script>
+{% endblock script %}
+
+{% block content %}
+    {{ block.super }}
+    <form method="post">
+{% endblock %}
+
+{% block after_react %}
+    {{ block.super }}
+        <textarea name="source" id="source" style="display: none">{{ snippet_js|safe }}</textarea>
+        {% csrf_token %}
+    </form>
+    <hr>
+    <div>
+        <pre>{{ result }}</pre>
+    </div>
+    <hr>
+{% endblock after_react %}
+
+{% block react_off %}
+    {% pygment %}
+        {{ snippet|safe }}
+    {% endpygment %}
+{% endblock react_off %}

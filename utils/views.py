@@ -16,7 +16,7 @@ def settings_js(request):
         if _name[0] != '_' and _name[0].isupper():
             _settings[_name] = getattr(settings, _name, None)
     context = {
-        "settings_dir": json.dumps(_settings)
+        "settings_dir": _settings
     }
-    response = render(request, "utils/settings.js", context)
+    response = render(request, "settings.html", context)
     return response

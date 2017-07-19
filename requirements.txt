@@ -12,9 +12,20 @@ jsonfield # postgresql json field driver
 django-mptt # to represent and manage hierarchical data structures
 
 django-extensions # for improve command line commands and debugging
+bpython # for shell plus
 
 Werkzeug # deploy helper, we not need this yet, provide also onsite debuger and this is nice
 # django-debug-toolbar # for debug application od screen
 # watson # inline debug tools
 
 djangorestframework # Django support for rest
+
+# Django React cooperation
+django-webpack-loader
+
+pygments  # We'll be using this for the code highlighting
+git+https://github.com/berecik/django-pygments.git # for pygments template tags, python 3 fixed version
+
+social-auth-app-django # for able log in via facebook or google account
+
+channels # websocket implementation fo chat

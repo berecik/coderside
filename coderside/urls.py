@@ -20,5 +20,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^wiki/', include('waliki.urls')),
     url(r'^utils/', include("utils.urls")),
-    url(r'^band/', include("band.urls")),
+    url(r'^bands/', include("bands.urls")),
+    url(r'^snippets/', include("snippets.urls")),
+    url('^', include('django.contrib.auth.urls')),
+    url('', include('social_django.urls', namespace='social')),
 ]

@@ -5,11 +5,12 @@ import React from 'react';
 import './ToggleButton.scss';
 
 export default class ToggleButton extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         let on = false;
-        if(this.props && this.props.on){
+
+        if(this.props.on){
             on = this.props.on
         }
 
@@ -27,17 +28,16 @@ export default class ToggleButton extends React.Component {
 
     render() {
         return (
-            <a
+            <span
                 className="toggle-button"
-                href="#"
                 onClick={this.onToggleClick.bind(this)}
             >
                 <span
                     className={`${this.state.on ? "toggle-on" : "toggle-off"}`}
                 >
-                    <div></div>
+                    <span></span>
                 </span>
-            </a>
+            </span>
         );
     }
 }
