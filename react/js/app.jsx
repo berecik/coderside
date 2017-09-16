@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     ReactDOM.render(
         <div>
-            <h1>Code Editor!</h1>
             <CodeEditor/>
         </div>,
         document.getElementById('react-root')

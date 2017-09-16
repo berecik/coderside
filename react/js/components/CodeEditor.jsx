@@ -12,11 +12,6 @@ import 'codemirror/mode/markdown/markdown'
 import './md5';
 
 
-function HelloAllMyNameIsLongerThanYour() {
-    return <h1>Hello<ToggleButton/></h1>;
-}
-
-
 export default class CodeEditor extends React.Component {
     constructor(props) {
         super(props);
@@ -80,13 +75,12 @@ export default class CodeEditor extends React.Component {
             mode: 'python'
         };
         return <div>
-            <HelloAllMyNameIsLongerThanYour/>
             <span>Edit:
                 <ToggleButton on={this.state.edit} onChange={this.changeEdit}/>
             </span>
             <button onClick={this.copyText}>Copy</button>
-            <button name="exec" value={true}>Execute</button>
-            <button name="save" value={true}>Save</button>
+            <button name="command" value="exec">Execute</button>
+            <button name="command" value="save">Save</button>
             <input type="hidden" value={this.state.edit} name="edit"/>
             <CodeMirror
                 ref="editor"

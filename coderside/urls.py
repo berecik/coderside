@@ -15,13 +15,25 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from snippets import views
+from rest_framework.routers import DefaultRouter
+from django.conf import settings
+from django.conf.urls.static import static
+
+router = DefaultRouter()
+router.register(r'snippet', views.SnippetViewSet)
+router.register(r'edition', views.EditionViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^wiki/', include('waliki.urls')),
     url(r'^utils/', include("utils.urls")),
-    url(r'^bands/', include("bands.urls")),
+    # url(r'^bands/', include("bands.urls")),
     url(r'^snippets/', include("snippets.urls")),
-    url('^', include('django.contrib.auth.urls')),
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^auth/', include('django.contrib.auth.urls')),
     url('', include('social_django.urls', namespace='social')),
+
 ]

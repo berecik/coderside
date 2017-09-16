@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render_to_response, get_object_or_404
@@ -20,10 +20,24 @@ from django.http import HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import permission_required
 
-from snippets.models import Snippet
+from rest_framework import viewsets
+from .models import Snippet, Edition
+from .serializers import SnippetSerializer, EditionSerializer
 
 from pprint import PrettyPrinter
 pp = PrettyPrinter(indent=4).pprint
+
+
+class SnippetViewSet(viewsets.ModelViewSet):
+
+    queryset = Snippet.objects.all()
+    serializer_class = SnippetSerializer
+
+
+class EditionViewSet(viewsets.ModelViewSet):
+
+    queryset = Edition.objects.all()
+    serializer_class = EditionSerializer
 
 
 @contextmanager

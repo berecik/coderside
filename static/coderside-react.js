@@ -20260,11 +20260,6 @@ document.addEventListener('DOMContentLoaded', function () {
     _reactDom2.default.render(_react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
-            'h1',
-            null,
-            'Code Editor!'
-        ),
         _react2.default.createElement(_CodeEditor2.default, null)
     ), document.getElementById('react-root'));
 }); /**
@@ -20817,15 +20812,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 
-function Hello() {
-    return _react2.default.createElement(
-        'h1',
-        null,
-        'Hello',
-        _react2.default.createElement(_ToggleButton2.default, null)
-    );
-}
-
 var CodeEditor = function (_React$Component) {
     _inherits(CodeEditor, _React$Component);
 
@@ -20898,7 +20884,6 @@ var CodeEditor = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(Hello, null),
                 _react2.default.createElement(
                     'span',
                     null,
@@ -20912,12 +20897,12 @@ var CodeEditor = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'button',
-                    { name: 'exec', value: true },
+                    { name: 'command', value: 'exec' },
                     'Execute'
                 ),
                 _react2.default.createElement(
                     'button',
-                    { name: 'save', value: true },
+                    { name: 'command', value: 'save' },
                     'Save'
                 ),
                 _react2.default.createElement('input', { type: 'hidden', value: this.state.edit, name: 'edit' }),

@@ -69,7 +69,7 @@ INSTALLED_APPS = [
     # my private tools
     'utils.apps.UtilsConfig',  # to share settings between Django and JavaScript
 
-    'bands.apps.BandConfig',  # simple test page
+    # 'bands.apps.BandConfig',  # simple test page
     'snippets.apps.SnippetsConfig',  # code snippets apps
 
 ]
@@ -154,11 +154,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = [
-    os.path.join(BASE_DIR, "bands/static/"),
-    # os.path.join(BASE_DIR, "react"),
-    # '/var/www/static/',
-]
+# STATIC_ROOT = [
+#     os.path.join(BASE_DIR, "static"),
+#     # os.path.join(BASE_DIR, "react"),
+#     '/var/www/static/',
+# ]
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # waliki config here
 SENDFILE_BACKEND = 'sendfile.backends.simple'
@@ -214,7 +218,7 @@ CHANNEL_LAYERS = {
     },
 }
 
-# import settings shared between Django and JavaScript
+# import common settings variables to sharing between Django and JavaScript
 try:
     from .common_settings import *
 except ImportError as e:

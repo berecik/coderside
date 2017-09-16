@@ -1,5 +1,7 @@
 from django.db import models
 
+import hashlib
+
 from pygments.lexers import get_all_lexers
 from pygments.styles import get_all_styles
 
@@ -30,6 +32,13 @@ class Snippet(models.Model):
     @property
     def source(self):
         return self.edition.source
+
+    @source.setter
+    def source(self, source):
+        hl = hashlib.md5()
+        hl.update(source.encode('utf-8'))
+        _hash = hl.hexdigest()
+        Edition.objects.create(hash=_hash, snippet=self, source=source)
 
 
 class Edition(models.Model):
