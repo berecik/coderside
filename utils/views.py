@@ -18,5 +18,4 @@ def settings_js(request):
     context = {
         "settings_dir": _settings
     }
-    response = render(request, "settings.html", context)
-    return response
+    return render(request, "settings.html", context)
